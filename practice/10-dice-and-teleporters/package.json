@@ -1,0 +1,11 @@
+{
+  "name": "10-dice-and-teleporters",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node run.js",
+    "test": "node --test answer.test.js",
+    "solution": "node reference.js",
+    "test:solution": "node reference.js --test"
+  }
+}

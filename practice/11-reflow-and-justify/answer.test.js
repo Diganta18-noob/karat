@@ -1,0 +1,11 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+const {reflowAndJustify} = await import(process.env.PRACTICE_SOLUTION === '1' ? './solution.js' : './answer.js');
+const lines=['The day began as still as the','night abruptly lighted with','brilliant flame'];
+test('workbook width 24', () => assert.deepEqual(reflowAndJustify(lines,24),['The--day--began-as-still','as--the--night--abruptly','lighted--with--brilliant','flame']));
+test('single line and uneven gaps', () => assert.deepEqual(reflowAndJustify(['a b','c d'],20),['a------b-----c-----d']));
+test('short width', () => assert.deepEqual(reflowAndJustify(['a b','c d'],4),['a--b','c--d']));
+test('single words not padded', () => assert.deepEqual(reflowAndJustify(['a b','c d'],2),['a','b','c','d']));
+test('empty input', () => assert.deepEqual(reflowAndJustify([],10),[]));
+test('reject oversized word', () => assert.throws(() => reflowAndJustify(['oversized'],3)));
+test('reject zero width', () => assert.throws(() => reflowAndJustify(['a'],0)));

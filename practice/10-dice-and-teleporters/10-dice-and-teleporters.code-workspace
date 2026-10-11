@@ -1,0 +1,24 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Start practice",
+        "type": "shell",
+        "command": "npm run dev",
+        "problemMatcher": []
+      },
+      {
+        "label": "Check practice",
+        "type": "shell",
+        "command": "npm test",
+        "problemMatcher": []
+      }
+    ]
+  }
+}

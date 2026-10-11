@@ -1,0 +1,11 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {events} from './examples.js';
+const {grouping} = await import(process.env.PRACTICE_SOLUTION === '1' ? './solution.js' : './answer.js');
+test('workbook N=3', () => assert.deepEqual(grouping(events,3),[['Alice','Charlie','Pam','Nicole'],['Bob','Dennis','Edward']]));
+test('workbook N=1', () => assert.deepEqual(grouping(events,1),[[],['Alice','Bob','Charlie','Dennis','Pam','Edward','Nicole']]));
+test('workbook N=10', () => assert.deepEqual(grouping(events,10),[['Alice','Bob','Charlie','Dennis','Pam','Edward','Nicole'],[]]));
+test('reversed disconnect and zero counts', () => assert.deepEqual(grouping([['CONNECT','a','b'],['DISCONNECT','b','a']],1),[['a','b'],[]]));
+test('repeated connect', () => assert.deepEqual(grouping([['CONNECT','a','b'],['CONNECT','b','a']],2),[['a','b'],[]]));
+test('empty input', () => assert.deepEqual(grouping([],3),[[],[]]));
+test('self connection rejected', () => assert.throws(() => grouping([['CONNECT','a','a']],1)));

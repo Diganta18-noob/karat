@@ -1,0 +1,11 @@
+{
+  "name": "11-reflow-and-justify",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node run.js",
+    "test": "node --test answer.test.js",
+    "solution": "node reference.js",
+    "test:solution": "node reference.js --test"
+  }
+}

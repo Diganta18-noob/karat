@@ -1,0 +1,29 @@
+{
+  "name": "karat-product-search-practice",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Interview practice workspace: debug and fix a React ProductSearch component against a controllable mock API.",
+  "scripts": {
+    "dev": "vite",
+    "test": "vitest run fixed",
+    "test:buggy": "vitest run buggy",
+    "test:practice": "vitest run practice",
+    "test:watch": "vitest practice",
+    "test:all": "vitest run"
+  },
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@vitejs/plugin-react": "^6.1.2",
+    "jsdom": "^29.1.1",
+    "json-server": "^1.0.0-beta.15",
+    "vite": "^8.3.3",
+    "vitest": "^5.0.3"
+  }
+}

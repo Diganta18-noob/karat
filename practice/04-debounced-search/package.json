@@ -1,0 +1,10 @@
+{
+  "name": "04-debounced-search",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node ../../node_modules/vite/bin/vite.js --host 127.0.0.1",
+    "solution": "node ../../node_modules/vite/bin/vite.js --host 127.0.0.1",
+    "build": "node ../../node_modules/vite/bin/vite.js build"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "notes": [
+    {
+      "text": "Gggasdasdaszdbcvxb  ",
+      "done": false,
+      "id": "ulnbqzKJj5c"
+    },
+    {
+      "text": "ggggggg",
+      "done": false,
+      "id": "1Qy7n2AA-_U"
+    },
+    {
+      "text": "ll",
+      "done": false,
+      "id": "jn99pWYV77w"
+    },
+    {
+      "text": "Abcd",
+      "done": false,
+      "id": "tZEi4_n2spA"
+    },
+    {
+      "text": "aasasas",
+      "done": false,
+      "id": "B5NCLxkbEKA"
+    },
+    {
+      "text": "ggg",
+      "done": false,
+      "id": "FVLOFqlJd1k"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
