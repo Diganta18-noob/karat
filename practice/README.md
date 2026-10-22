@@ -1,3 +1,16 @@
+# Practice index
+
+## Current: Excel React snippets only
+
+[Open the Excel-only practice set](excel-react/README.md). Edit the actual supplied snippets and check the separate answers.
+
+```powershell
+cd D:\Antigravity\Karat
+npm.cmd run practice:excel -- 01-pagination
+```
+
+## Previous demo workspaces (saved)
+
 # Karat interview practice workspaces
 
 Each question has its own folder and editor workspace. Open a folder, read README.md, edit its starter, and check the acceptance list before revealing its solution.

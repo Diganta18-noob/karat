@@ -1,0 +1,22 @@
+import { useState, useEffect } from "react";
+function Search() {
+const [query, setQuery] = useState("");
+const [debouncedQuery, setDebouncedQuery] = useState("");
+useEffect(() => {
+const timer = setTimeout(() => {
+setDebouncedQuery(query);
+}, 500);
+return () => clearTimeout(timer);
+}, [query]);
+return (
+<>
+<input
+value={query}
+onChange={(e) => setQuery(e.target.value)}
+/>
+<p>Search after typing stops: {debouncedQuery}</p>
+</>
+);
+}
+
+export default Search;

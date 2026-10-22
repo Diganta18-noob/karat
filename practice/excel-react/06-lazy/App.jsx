@@ -1,0 +1,11 @@
+import React, { lazy, Suspense } from "react";
+const Dashboard = lazy(() => import("./Dashboard"));
+function App() {
+return (
+<Suspense fallback={<h1>Loading...</h1>}>
+<Dashboard />
+</Suspense>
+);
+}
+
+export default App;

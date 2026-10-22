@@ -25,20 +25,19 @@ npm ci
 
 The initial installation requires internet access to the npm registry. Keep the whole project together: React exercises use the root `node_modules` folder. After installation, the exercises use local data; Question 13 uses its local JSON Server. Python and Git are not required for practicing from a downloaded ZIP.
 
-## 3. Choose a question
+## 3. Practice the Excel React snippets
 
-Open [the practice index](practice/README.md). Every numbered folder has its own **RUN-GUIDE.md**, with exact commands, files to edit, and how to check your work.
+Open [the Excel-only practice guide](practice/excel-react/README.md).
 
-Example, starting from the project root:
+From the project root:
 
 ```powershell
-cd practice/01-class-to-function
-npm run dev
+npm.cmd run practice:excel -- 01-pagination
 ```
 
-Open the local URL printed in the terminal. Keep the terminal running and edit `App.jsx`. Save to refresh the page. Press **Ctrl+C** to stop. Questions 10–12 are Node.js exercises and run in the terminal instead of React. Question 13 needs two terminals; follow its guide.
+Open the URL printed by Vite. Edit `practice/excel-react/01-pagination/App.jsx`, save, and check the browser. Read QUESTION.md for the task and ORIGINAL.txt for the exact supplied snippet. Use /?solution=1 to see the separate answer.
 
-To run the original product-search workbench, open a new terminal at the project root and run `npm run dev`. Edit `src/ProductSearchPractice.jsx`; run `npm test` for the fixed reference or `npm run test:practice` for your attempt. Unfinished practice tests may fail until you implement the answer.
+Press Ctrl+C, then run the same command with another exercise name from the guide. These exercises use the original API URLs and need internet access. No JSON Server is needed. Your previous demo workspaces remain saved under practice.
 
 ## Troubleshooting
 

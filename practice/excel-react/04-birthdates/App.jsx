@@ -1,0 +1,104 @@
+import React, {useEffect, useState} from 'react';
+
+
+const App = () => {
+  const { response, isLoading, hasError } = useFetch("https://dummyjson.com/users?limit=100", "GET");
+  const [beforeList, setBeforeList] = useState([]);
+  const [afterList, setAfterList] = useState([]);
+
+  useEffect(() => {
+    if (response === undefined || isLoading || hasError) {
+      return;
+    }
+
+    const { users } = response;
+    const [before, after] = getBeforeAndAfterLists(users);
+    setBeforeList(before);
+    setAfterList(after);
+  }, [response, isLoading, hasError]);
+  
+  return (    
+    <div className="list-of-users">
+      <div className="before">
+        <h3>Users born before 2000</h3>
+
+        <div className="content">
+          {beforeList.map(user => (
+            <div className="user-item">
+              <UserView user={user}/>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="after">
+        <h3>Users born after 2000</h3>
+
+        <div className="content">
+          {afterList.map(user => (
+            <div className="user-item">
+              <UserView user={user} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+const UserView = ({user}) => {
+  return (
+    <div className="user-view">
+      <div className="user">{user.name} - {user.birthDate}</div>
+        <div className="buttons">
+          <button className="edit btn btn-blue">Edit</button>
+        </div>
+    </div>
+  )
+};
+
+const useFetch = (url, method) => {
+  const [response, setResponse] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      const response = await fetch(url, { method });
+      if (!response.ok) {
+        setHasError(true);
+        setIsLoading(false);
+      }
+      const data = await response.json();
+      setResponse(data);
+      setIsLoading(false);
+
+      if (hasError) {
+        setHasError(false);
+      }
+    })();
+  }, [url, method]);
+  
+  return { response, isLoading, hasError, };
+}
+
+const getBeforeAndAfterLists = (users) => {
+    const internalUsers = users.map(user => ({ name: user.name || `${user.firstName} ${user.lastName}`, birthDate: user.birthDate, id: user.id }));
+    
+    internalUsers.sort((a, b) => birthdayToTime(a.birthDate) > birthdayToTime(b.birthDate) ? 1 : -1);
+    const before = internalUsers.filter(user => birthdayToYear(user.birthDate) < 2000);
+    const after = internalUsers.filter(user => birthdayToYear(user.birthDate) >= 2000);
+
+    return [before, after];
+}
+
+function birthdayToTime(birthDate) {
+  return new Date(birthDate).getTime();
+}
+
+function birthdayToYear(birthDate) {
+  return new Date(birthDate).getFullYear();
+}
+
+
+export default App;
